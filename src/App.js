@@ -5,7 +5,7 @@ import LearningMore from './components/Learning/LearningMore'
 
 export default function App() {
   return (
-    <div className='min-h-screen px-5' data-theme="white2">
+    <div className='min-h-screen px-5'>
       <Routes>
         <Route path='/' element={<Header/>}/>
         <Route path='/learningmore' element={<LearningMore/>}/>
