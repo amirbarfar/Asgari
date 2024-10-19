@@ -5,11 +5,14 @@ module.exports = {
     extend: {
       fontFamily : {
         bold : "Vbold"
-      }
+      },
+      daisyui: {
+        themes: ["light", "dark", "cupcake"],
+      },
     },
   },
   plugins: [
-    
+    // require('daisyui')
   ],
 }
 

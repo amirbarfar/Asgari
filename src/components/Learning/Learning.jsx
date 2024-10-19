@@ -5,7 +5,7 @@ import Animation from '../Animation'
 
 export default function Learning() {
   return (
-    <div className='flex justify-center items-start gap-10 py-10'>
+    <div className='flex justify-center items-center gap-10 max-lg:justify-start py-10 overflow-x-scroll'>
       <Animation/>
         {
           Data.map((item)=>
