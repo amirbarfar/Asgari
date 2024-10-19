@@ -1,10 +1,15 @@
 import React from 'react'
 import Header from './components/Header'
+import { Route, Routes } from 'react-router-dom'
+import LearningMore from './components/Learning/LearningMore'
 
 export default function App() {
   return (
     <div className='min-h-screen px-5' data-theme="white2">
-      <Header/>
+      <Routes>
+        <Route path='/' element={<Header/>}/>
+        <Route path='/learningmore' element={<LearningMore/>}/>
+      </Routes>
     </div>
   )
 }

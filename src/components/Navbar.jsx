@@ -23,7 +23,7 @@ export default function Navbar() {
                                 <li>مقالات</li>
                             </a>
                             <a href="">
-                                <li>درباره ما</li>
+                                <li>تماس با ما</li>
                             </a>
                         </ul>
                 </div>

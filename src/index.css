@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 0;  
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -20,7 +20,7 @@ code {
   font-family: Vbold;
   src: url('../public/font/Vazirmatn-Bold.ttf');
 }
-
+/* 
 body {
   --sb-thumb-color: #ffffff;
   --sb-size: 10px;
@@ -32,4 +32,4 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
-} 
+}  */
