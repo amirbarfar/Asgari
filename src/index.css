@@ -21,6 +21,15 @@ code {
   src: url('../public/font/Vazirmatn-Bold.ttf');
 }
 
-.bg-all{
-  background: linear-gradient(to right , #180d5b , #251d72);
+body {
+  --sb-thumb-color: #ffffff;
+  --sb-size: 10px;
 }
+
+body::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+} 

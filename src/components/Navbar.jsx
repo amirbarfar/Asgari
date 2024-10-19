@@ -10,15 +10,15 @@ export default function Navbar() {
                         <div tabindex="0" role="button" class="btn btn-ghost btn-circle"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg></div>
                     </div>
                         <ul class="max-md:menu dropdown-content flex justify-start items-center gap-5 max-md:flex-col max-md:p-5 max-md:mt-10 max-md:bg-black z-20 max-md:w-44 max-md:rounded-lg">
-                            <NavLink to={'/'} className={({ isActive }) => (isActive ? "text-blue-700" : '')}>
-                                خانه
-                            </NavLink>
-                            <NavLink to={'/learning'} className={({ isActive }) => (isActive ? "text-blue-700" : '')}>
-                                آموزش ها
-                            </NavLink>
-                            <NavLink to={'/exam'} className={({ isActive }) => (isActive ? "text-blue-700" : '')}>
-                                آزمون ها
-                            </NavLink>
+                            <a href="">
+                                <li>خانه</li>
+                            </a>                                
+                            <a href="">
+                                <li>آموزش ها</li>
+                            </a>
+                            <a href="">
+                                <li>آزمون ها</li>
+                            </a>
                             <a href="">
                                 <li>مقالات</li>
                             </a>
