@@ -14,6 +14,7 @@ export default function Header() {
             <p className='text-lg max-md:text-sm'>خــب، مــا ایــنــجــا قــصــد داریـــم بــا هــم، یــعــنــی کنـــار هــم، گـام‌ بـه‌ گـام مفــــــاهـیـم شبـــکـه رو یـاد بـگیــریـم و بـبـیـنـیـم اصـلـاً بـه چـه دردی مــیــخــوره! و هـمـیـن دیـگـه... بــزن بــــــریـم ببـیـنیـم ایـن شـبــکه شبــکه کـه مـیـگـن، چــــیه!</p>
             <a href=""><button className='w-[50%] h-12 border-2 border-[#2568EB] rounded-lg mt-10 hover:bg-blue-600 hover:text-white transition-all duration-150 max-sm:w-full'>خـب بـزن بـریـم آمـوزش هـارو بـبـیـنیـم</button></a>
           </div>
+          
           <img className='w-[40%] max-xl:w-full' src="./image/bg-header.png" alt="" />
         </div>
         <Learning/>
