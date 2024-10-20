@@ -7,7 +7,7 @@ export default function LearningBox(props) {
             <p className='mb-5 h-16 text-sm'>{props.answer1}</p>
             <p className='h-20 text-sm'>{props.answer2}</p>
             <div class="card-actions justify-start">
-                <button class="w-44 h-12 bg-blue-600 text-white rounded-lg mt-5"><a href={props.link}>اطلاعات بیشتر :)</a></button>
+                <button class="w-44 h-12 bg-blue-600 text-white rounded-lg mt-5"><a target='blank' href={props.link}>اطلاعات بیشتر :)</a></button>
             </div>
         </div>
     )
