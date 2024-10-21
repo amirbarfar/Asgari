@@ -17,8 +17,8 @@ code {
 @tailwind utilities;
 
 @font-face {
-  font-family: Vbold;
-  src: url('../public/font/Vazirmatn-Bold.ttf');
+  font-family: HGofteh;
+  src: url('../public/font/Gofteh-Heavy.ttf');
 }
 
 body {

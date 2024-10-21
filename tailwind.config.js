@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {},
     fontFamily : {
-      bold : 'Vbold'
+      bold : 'HGofteh'
     }
   },
   'class': ['variant', [

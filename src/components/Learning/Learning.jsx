@@ -9,7 +9,7 @@ export default function Learning() {
     <>
       <div className='flex justify-between items-center font-bold mx-2 mt-24'>
       <h2 className='text-xl max-sm:text-base'>بـخـش آمــوزش</h2>
-      <Link to={"learningmore"} className='w-36 h-10 bg-blue-600 flex justify-center items-center text-white rounded-lg max-sm:text-sm max-sm:w-20 max-sm:h-8'>بیشتر</Link>
+      <Link to={"learningmore"} className='w-44 h-12 bg-primary flex justify-center items-center text-white rounded-lg max-sm:text-sm max-sm:w-20 max-sm:h-8'>بیشتر ببینیم؟</Link>
     </div>
       <div className='flex justify-center items-center gap-10 max-xl:justify-start py-10 overflow-x-scroll'>
         <Animation/>
