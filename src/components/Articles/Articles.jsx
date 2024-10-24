@@ -9,10 +9,9 @@ export default function Articles() {
     <div className='mt-24' id='articles'>
       <div className='flex justify-between items-center font-bold mx-2 mt-24'>
         <h2 className='text-xl max-sm:text-base'>بـخـش مقالات</h2>
-        <Link to={"articles"} className='w-44 h-12 bg-primary flex justify-center items-center text-white rounded-lg max-sm:text-sm max-sm:w-20 max-sm:h-8'>بازم مقاله هستا :)</Link>
+        <Link to={"articles"} className='w-44 h-12 bg-primary flex justify-center items-center text-white rounded-lg max-sm:text-sm max-sm:w-28 max-sm:h-8'>بازم مقاله هستا :)</Link>
       </div>
-      <div className='flex justify-center flex-wrap my-10 items-center gap-20 font-bold'>
-        <Animation />
+      <div className='flex justify-center flex-wrap items-center gap-20 font-bold'>
         {
           DataArticles.map((item) =>
             <Link to={`/articles/${item.id}`}>

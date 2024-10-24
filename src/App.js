@@ -5,7 +5,9 @@ import LearningMore from './components/Learning/LearningMore/LearningMore'
 import ArticlesHomeMore from './components/Articles/ArticlesRender'
 import ArticlesMore from './components/Articles/ArticlesMore/ArticlesMore'
 import Dashboard from './components/Dashboard'
-import NotFound from './NotFound'
+import NotFound from './components/NotFound'
+import Login from './components/Login'
+import Register from './components/Register'
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
         <Route path='/articles' element={<ArticlesMore/>}/>
         <Route path='/articles/:id' element={<ArticlesHomeMore/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>

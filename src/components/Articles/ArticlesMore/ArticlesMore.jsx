@@ -10,10 +10,8 @@ export default function ArticlesMore() {
   return (
     <>
       <Navbar />
-      <Animation/>
       <div className='mt-24' id='articles'>
         <div className='flex justify-center flex-wrap my-10 items-center gap-20 font-bold'>
-          <Animation />
           {
             DataArticles.map((item) =>
               <Link to={`/articles/${item.id}`}>

@@ -21,9 +21,9 @@ export default function ArticlesRender() {
     <>
         <Navbar/>
         <Animation/>
-        <div className='w-[70%] font-bold flex justify-center items-center flex-col mx-auto'>
-            <img className='w-[40%] h-96 rounded-lg m-10' src={result.img} alt="" />
-            <p className='w-[60%] leading-8'>{result.more}</p>
+        <div className='w-[70%] max-sm:w-full font-bold flex justify-center items-center flex-col mx-auto'>
+            <img className='w-[40%] max-sm:w-full h-96 rounded-lg m-10' src={result.img} alt="" />
+            <p className='w-[60%] max-sm:w-full leading-8'>{result.more}</p>
             <Animation/>
         </div>
         <Footer/>

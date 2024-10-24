@@ -21,7 +21,6 @@ export default function LearningMore() {
 
   return (
     <div>
-      <Animation />
       <Navbar />
       
       <div className="flex justify-center items-center ">
@@ -42,11 +41,10 @@ export default function LearningMore() {
         { data.length ?
           data.map((item) => <LearningMoreBox {...item} key={item.id} />)
           :
-          <p>محتوایی مرتبط با <span class="text-red-500 text-lg">"{search}"</span> یافت نشد.</p>
+          <p>محتوایی مرتبط با <span className="text-red-500 text-lg">"{search}"</span> یافت نشد.</p>
         }
-        <Animation />
-        <Footer/>
       </div>
+        <Footer/>
     </div>
   );
 }
