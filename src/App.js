@@ -1,16 +1,22 @@
 import React from 'react'
-import Header from './components/Header'
+import Home from './components/Home'
 import { Route, Routes } from 'react-router-dom'
 import LearningMore from './components/Learning/LearningMore/LearningMore'
-import Articles from './components/Articles/Articles'
+import ArticlesHomeMore from './components/Articles/ArticlesRender'
+import ArticlesMore from './components/Articles/ArticlesMore/ArticlesMore'
+import Dashboard from './components/Dashboard'
+import NotFound from './NotFound'
 
 export default function App() {
   return (
     <div className='min-h-screen px-5'>
       <Routes>
-        <Route path='/' element={<Header/>}/>
-        <Route path='/learningmore' element={<LearningMore/>}/>
-        <Route path='/articles' element={<Articles/>}/>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/learning' element={<LearningMore/>}/>
+        <Route path='/articles' element={<ArticlesMore/>}/>
+        <Route path='/articles/:id' element={<ArticlesHomeMore/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>
   )
