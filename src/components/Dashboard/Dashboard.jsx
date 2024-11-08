@@ -54,6 +54,7 @@ export default function Dashboard() {
   }
 
   return (
+    
     <div className='bg-white min-h-screen'>
       <NavbarDashborad />
       <div className="overflow-x-auto absolute top-[50%] left-[10%] right-[15%] max-sm:left-[5%] max-sm:right-[5%]">
