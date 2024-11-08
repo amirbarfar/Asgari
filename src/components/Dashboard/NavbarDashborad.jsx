@@ -22,6 +22,15 @@ export default function NavbarDashborad() {
         getName();
     } , [])
 
+    async function exitHandler() {
+        await fetch('http://127.0.0.1:8000/api/auth/logout' , {
+            credentials: "include",
+            headers: {
+              'Accept': 'application/json', 
+              'Content-Type': "application/json"
+            }
+        })
+    }
 
 
     return (
@@ -54,10 +63,10 @@ export default function NavbarDashborad() {
                                     اضافه کردن دوره
                                 </NavLink>
                             </li>
-                            <li className='pt-10 mx-auto'>
-                                <a href='' className="w-full h-12 bg-red-500 text-white p-3 rounded-lg">
+                            <li className='pt-10 mx-auto' onClick={() => exitHandler()}>
+                                <p className="w-full h-12 bg-red-500 text-white p-3 rounded-lg">
                                     خروج از حساب کاربری
-                                </a>
+                                </p>
                             </li>
                         </ul>
                     </div>

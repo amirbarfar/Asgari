@@ -1,34 +1,37 @@
-import React , {useEffect , useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import {fetchData} from "../lib/fetchData";
+import { fetchData } from "../lib/fetchData";
 import Cookies from 'js-cookie';
 
 export default function Navbar() {
     const [user, setUser] = useState('')
-
-    async function getName()
-    {
-        let nameD = await fetchData("/auth/me");
-        nameD = await nameD.json();
-
-        setUser(nameD);
-    }
-    
-    function isLogin()
-    {
-        const cookie = Cookies.get("auth");
-        if(cookie)
-        {
-            getName();
+    const [isLogin, setIsLogin] = useState(false)
+    async function getName() {
+        console.log("before fetch")
+        let nameD = await fetch('http://localhost:8000/api/auth/me', {
+            credentials: "include",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': "application/json"
+            }
+        });
+        console.log("after fetch")
+        if (nameD.ok) {
+            setIsLogin(true);
+            
+            nameD = await nameD.json();
+            console.log(nameD)
+            setUser(nameD);
             return true;
         }
+        setIsLogin(false);
         return false;
-        
     }
 
-    useEffect(()=> {
-        isLogin()
-    } , [])
+    useEffect(() => {
+        getName()
+    }, [])
+
     return (
         <>
             <div className='font-bold flex justify-between items-center'>
@@ -61,7 +64,7 @@ export default function Navbar() {
                     </ul>
                 </div>
                 {
-                    isLogin() ? (
+                    isLogin ? (
                         <p>{user.name}</p>
                     ) : (
                         <div className='flex justify-center items-center gap-2 max-sm:hidden'>

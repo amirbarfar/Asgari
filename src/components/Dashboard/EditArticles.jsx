@@ -21,18 +21,24 @@ export default function EditArticles() {
     document.querySelector("#inp").value = dateResult;
   }
   const {id} = useParams();
-
+  const [imgSrc , setImgSrc] = useState("") 
   useEffect(() => {
     getData();
   }, []);
 
   async function getData() {
     try {
-      let postsResponse = await fetchData(`/posts/${id}`);
+      let postsResponse = await fetch(`http://127.0.0.1:8000/api/posts/${id}` , {
+        credentials: "include",
+        header: {
+          Accept: "application/json"
+        }
+      });
       const postsData = await postsResponse.json();
       console.log(postsData.data)
       setName(postsData.data.title)
       setContent(postsData.data.content)
+      setImgSrc(postsData.data.image)
       setDiscription(postsData.data.description)
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -56,8 +62,7 @@ export default function EditArticles() {
         body: formData,
         credentials: "include",
         headers: {
-          // Omit Content-Type header because `fetch` automatically handles it with `multipart/form-data`
-          'Accept': 'application/json', // to specify that you expect JSON response
+          'Accept': 'application/json',
         },
       });
 
@@ -91,6 +96,9 @@ export default function EditArticles() {
            h-12 input bg-slate-100'/>
         </div>
         <div className='flex justify-start items-start flex-col gap-5 max-lg:w-full'>
+          <div class="w-1/2">
+            <img src={imgSrc} alt="fdsfds" />
+          </div>
           <label className='mr-2'>ادیت عکس مقاله</label>
           <input onChange={(event) => (setImage(event.target.value))} type="file" className='w-[275px] max-lg:w-[90%]
            h-12 bg-slate-100 file-input'/>

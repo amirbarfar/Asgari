@@ -26,6 +26,33 @@ export default function Dashboard() {
     }
   }
 
+  async function deletePost(id)
+  {
+    const response = await fetch(`http://localhost:8000/api/posts/delete/${id}`, {
+      method: 'DELETE',
+      credentials: "include",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': "application/json"
+      },
+    });
+
+    await getData()
+  }
+  
+  async function deleteLearning(id){
+    const response = await fetch(`http://localhost:8000/api/questions/delete/${id}`, {
+      method: 'DELETE',
+      credentials: "include",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': "application/json"
+      },
+    });
+
+    await getData()
+  }
+
   return (
     <div className='bg-white min-h-screen'>
       <NavbarDashborad />
@@ -49,7 +76,7 @@ export default function Dashboard() {
                   <td>{post.created_at}</td>  
                   <td className='gap-1 flex justify-end'>
                     <Link to={`articles/${post.id}`} className="bg-cyan-500 w-36 p-3 rounded-lg text-white text-center max-sm:w-20">ویرایش</Link>
-                    <button className="bg-red-600 w-36 p-3 rounded-lg text-white max-sm:w-20">حذف</button>
+                    <button onClick={() => deletePost(post.id)} className="bg-red-600 w-36 p-3 rounded-lg text-white max-sm:w-20">حذف</button>
                   </td>
                 </tr>
               ))
@@ -78,7 +105,7 @@ export default function Dashboard() {
                   <td>{question.created_at}</td>
                   <td className='gap-1 flex justify-end'>
                     <Link to={`learninges/${question.id}`} className="bg-cyan-500 w-36 p-3 rounded-lg text-white text-center max-sm:w-20">ویرایش</Link>
-                    <button className="bg-red-600 w-36 p-3 rounded-lg text-white max-sm:w-20">حذف</button>
+                    <button onClick={() => deleteLearning(question.id)} className="bg-red-600 w-36 p-3 rounded-lg text-white max-sm:w-20">حذف</button>
                   </td>
                 </tr>
               ))
