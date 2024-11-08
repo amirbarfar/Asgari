@@ -20,6 +20,7 @@ export default function EditArticles() {
   }
   const {id} = useParams();
   const [imgSrc , setImgSrc] = useState("") 
+  
   useEffect(() => {
     getData();
   }, []);

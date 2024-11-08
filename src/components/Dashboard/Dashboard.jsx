@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import NavbarDashborad from './NavbarDashborad';
 import { Link } from 'react-router-dom';
 import { fetchData } from '../../lib/fetchData';
@@ -24,7 +24,7 @@ export default function Dashboard() {
 
   async function deletePost(id)
   {
-    const response = await fetch(`http://localhost:8000/api/posts/delete/${id}`, {
+    await fetch(`http://localhost:8000/api/posts/delete/${id}`, {
       method: 'DELETE',
       credentials: "include",
       headers: {
@@ -37,7 +37,7 @@ export default function Dashboard() {
   }
   
   async function deleteLearning(id){
-    const response = await fetch(`http://localhost:8000/api/questions/delete/${id}`, {
+    await fetch(`http://localhost:8000/api/questions/delete/${id}`, {
       method: 'DELETE',
       credentials: "include",
       headers: {
