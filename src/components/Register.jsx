@@ -1,24 +1,30 @@
 import React, { useState } from 'react'
+import { fetchData } from "../lib/fetchData";
+import { redirect, Link } from 'react-router-dom';
+import Alert from '@mui/material/Alert';
+import CheckIcon from '@mui/icons-material/Check';
 
 export default function Regester() {
-  const [username , setUsername] = useState('');
-  const [phone , setPhone] = useState('');
-  const [password , setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
 
-  async function registerUser(event)
-  {
+  async function registerUser(event) {
     event.preventDefault();
-    const res = await fetch("http://127.0.0.1:4002/api/auth/register" , {
-      method: "post",
-      body: JSON.stringify({name: username , phone: phone , password: password}),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include"
-    });
 
-    console.log(res)
+    try {
+      const res = await fetchData("/auth/register", 'POST', { phone: phone, name: username, password: password });
+
+      if (res.ok) {
+        console.log("Register successful!");
+        return redirect("/dashboard");
+      } else {
+        const errorData = await res.json();
+        alert(errorData.message || "An error occurred during register.");
+      }
+    } catch (error) {
+      alert("An error occurred: " + error.message);
+    }
   }
 
   return (

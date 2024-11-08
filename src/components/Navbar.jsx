@@ -1,7 +1,34 @@
-import React from 'react'
+import React , {useEffect , useState} from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import {fetchData} from "../lib/fetchData";
+import Cookies from 'js-cookie';
 
 export default function Navbar() {
+    const [user, setUser] = useState('')
+
+    async function getName()
+    {
+        let nameD = await fetchData("/auth/me");
+        nameD = await nameD.json();
+
+        setUser(nameD);
+    }
+    
+    function isLogin()
+    {
+        const cookie = Cookies.get("auth");
+        if(cookie)
+        {
+            getName();
+            return true;
+        }
+        return false;
+        
+    }
+
+    useEffect(()=> {
+        isLogin()
+    } , [])
     return (
         <>
             <div className='font-bold flex justify-between items-center'>
@@ -33,10 +60,16 @@ export default function Navbar() {
                         </Link>
                     </ul>
                 </div>
-                <div className='flex justify-center items-center gap-2 max-sm:hidden'>
-                    <Link to={"/register"}><button className='w-24 h-12 btn max-md:hidden block'>ثبت نام</button></Link>
-                    <Link to={"/login"}><button className='w-24 h-12 btn max-md:hidden block'>ورود</button></Link>
-                </div>
+                {
+                    isLogin() ? (
+                        <p>{user.name}</p>
+                    ) : (
+                        <div className='flex justify-center items-center gap-2 max-sm:hidden'>
+                            <Link to={"/register"}><button className='w-24 h-12 btn max-md:hidden block'>ثبت نام</button></Link>
+                            <Link to={"/login"}><button className='w-24 h-12 btn max-md:hidden block'>ورود</button></Link>
+                        </div>
+                    )
+                }
             </div>
         </>
     )

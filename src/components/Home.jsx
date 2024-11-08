@@ -21,6 +21,7 @@ export default function Home() {
           <img className='w-[40%] max-xl:w-full' src="./image/bg-header.png" alt="" />
         </div>
         <Learning/>
+        <Animation/>
         <Articles/>
         <Footer/>
     </>

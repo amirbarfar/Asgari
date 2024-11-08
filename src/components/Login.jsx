@@ -1,23 +1,28 @@
 import React, { useState } from 'react'
+import {fetchData} from "../lib/fetchData";
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [name , setName] = useState("");
   const [password , setPassword] = useState("");
+  let navigate = useNavigate()
 
-  async function loginForm (event)
-  {
+  async function loginForm(event) {
     event.preventDefault();
-    const res = await fetch("http://localhost:8000/api/auth/login" , {
-      method: "POST",
-      body: JSON.stringify({phone: name , password: password}),
-      credentials: "include",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
+    
+    try {
+      const res = await fetchData("/auth/login", 'POST', { phone: name, password: password });
+  
+      if (res.ok) {
+        console.log("Login successful!");
+        return navigate("/");
+      } else {  
+        const errorData = await res.json();
+        alert(errorData.message || "An error occurred during login.");
       }
-    })
-
-    console.log(res)
+    } catch (error) {
+      alert("An error occurred: " + error.message);
+    }
   }
   return (
     <div>

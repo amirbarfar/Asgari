@@ -10,6 +10,8 @@ import Login from './components/Login'
 import Register from './components/Register'
 import ArticlesAdd from './components/Dashboard/ArticlesAdd'
 import LearningAdd from './components/Dashboard/LearningAdd'
+import EditArticles from './components/Dashboard/EditArticles'
+import EditLearning from './components/Dashboard/EditLearning'
 
 export default function App() {
   return (
@@ -19,9 +21,11 @@ export default function App() {
         <Route path='/learning' element={<LearningMore/>}/>
         <Route path='/articles' element={<ArticlesMore/>}/>
         <Route path='/articles/:id' element={<ArticlesHomeMore/>}/>
-        <Route path='/dashboard//' element={<Dashboard/>}/>
+        <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/dashboard/articles' element={<ArticlesAdd/>}/>
+        <Route path='/dashboard/articles/:id' element={<EditArticles/>}/>
         <Route path='/dashboard/learninges' element={<LearningAdd/>}/>
+        <Route path='/dashboard/learninges/:id' element={<EditLearning/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='*' element={<NotFound/>}/>
