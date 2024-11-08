@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavbarDashborad from './NavbarDashborad';
 import { Link } from 'react-router-dom';
 import { fetchData } from '../../lib/fetchData';
@@ -7,7 +7,9 @@ export default function Dashboard() {
   const [posts, setPosts] = useState([]);          // Define posts as state
   const [questions, setQuestions] = useState([]);   // Define questions as state
 
+  useEffect(() => {
     getData();
+  }, [getData]);
 
   async function getData() {
     try {
@@ -26,7 +28,7 @@ export default function Dashboard() {
 
   async function deletePost(id)
   {
-    await fetch(`http://localhost:8000/api/posts/delete/${id}`, {
+    const response = await fetch(`http://localhost:8000/api/posts/delete/${id}`, {
       method: 'DELETE',
       credentials: "include",
       headers: {
@@ -35,11 +37,14 @@ export default function Dashboard() {
       },
     });
 
+    console.log(response);
+    
+
     await getData()
   }
   
   async function deleteLearning(id){
-    await fetch(`http://localhost:8000/api/questions/delete/${id}`, {
+    const response = await fetch(`http://localhost:8000/api/questions/delete/${id}`, {
       method: 'DELETE',
       credentials: "include",
       headers: {
@@ -47,6 +52,9 @@ export default function Dashboard() {
         'Content-Type': "application/json"
       },
     });
+
+    console.log(response);
+
 
     await getData()
   }

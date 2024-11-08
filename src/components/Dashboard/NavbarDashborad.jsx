@@ -37,7 +37,7 @@ export default function NavbarDashborad() {
         <div className='w-full grid col-span-10'>
             <div className='flex justify-center items-center mt-4 w-12 h-12 rounded-lg mx-2 my-8' onClick={clickHandler}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 6L20 6M4 10L20 10M8 14H20M4 18H20" stroke="black" stroke-width="2" stroke-linecap="round" />
+                    <path d="M8 6L20 6M4 10L20 10M8 14H20M4 18H20" stroke="black" strokeWidth="2" strokeLinecap="round" />
                 </svg>
 
             </div>

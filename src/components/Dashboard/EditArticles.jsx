@@ -23,7 +23,7 @@ export default function EditArticles() {
   
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   async function getData() {
     try {

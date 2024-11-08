@@ -22,7 +22,7 @@ export default function EditLearning() {
 
     useEffect(() => {
         getData();
-    }, []);
+    }, [getData]);
 
   async function getData() {
     try {
