@@ -26,7 +26,7 @@ export default function Dashboard() {
 
   async function deletePost(id)
   {
-    const response = await fetch(`http://localhost:8000/api/posts/delete/${id}`, {
+    await fetch(`http://localhost:8000/api/posts/delete/${id}`, {
       method: 'DELETE',
       credentials: "include",
       headers: {
@@ -39,7 +39,7 @@ export default function Dashboard() {
   }
   
   async function deleteLearning(id){
-    const response = await fetch(`http://localhost:8000/api/questions/delete/${id}`, {
+    await fetch(`http://localhost:8000/api/questions/delete/${id}`, {
       method: 'DELETE',
       credentials: "include",
       headers: {
