@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import NavbarDashborad from './NavbarDashborad';
 import { Link } from 'react-router-dom';
 import { fetchData } from '../../lib/fetchData';
@@ -7,9 +7,7 @@ export default function Dashboard() {
   const [posts, setPosts] = useState([]);          // Define posts as state
   const [questions, setQuestions] = useState([]);   // Define questions as state
 
-  useEffect(() => {
     getData();
-  }, []);
 
   async function getData() {
     try {
@@ -68,13 +66,17 @@ export default function Dashboard() {
               <th>اکشن ها</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='text-center'>
             {
               posts.map((post) => (
                 <tr className="bg-base-200" key={post.id}>
                   <th>{post.id}</th>
                   <td>{post.title}</td>
-                  <td>{post.created_at}</td>  
+                  <td>
+                    {
+                      post.created_at.split("T")[0]
+                    }
+                    </td>  
                   <td className='gap-1 flex justify-end'>
                     <Link to={`articles/${post.id}`} className="bg-cyan-500 w-36 p-3 rounded-lg text-white text-center max-sm:w-20">ویرایش</Link>
                     <button onClick={() => deletePost(post.id)} className="bg-red-600 w-36 p-3 rounded-lg text-white max-sm:w-20">حذف</button>
@@ -103,7 +105,11 @@ export default function Dashboard() {
                 <tr className="bg-base-200" key={question.id}>
                   <th>{question.id}</th>
                   <td>{question.question}</td>
-                  <td>{question.created_at}</td>
+                  <td>
+                    {
+                      question.created_at.split("T")[0]
+                    }
+                    </td>
                   <td className='gap-1 flex justify-end'>
                     <Link to={`learninges/${question.id}`} className="bg-cyan-500 w-36 p-3 rounded-lg text-white text-center max-sm:w-20">ویرایش</Link>
                     <button onClick={() => deleteLearning(question.id)} className="bg-red-600 w-36 p-3 rounded-lg text-white max-sm:w-20">حذف</button>
