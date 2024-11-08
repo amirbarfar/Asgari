@@ -2,10 +2,8 @@ import React from 'react'
 import { useState , useEffect } from 'react';
 import NavbarDashborad from './NavbarDashborad';
 import { useParams } from 'react-router-dom';
-import {fetchData} from "../../lib/fetchData"
 
 export default function EditArticles() {
-    const [dateInp, setDateInp] = useState()
     const [name , setName] = useState('')
     const [discription , setDiscription] = useState('')
     const [image , setImage] = useState('')

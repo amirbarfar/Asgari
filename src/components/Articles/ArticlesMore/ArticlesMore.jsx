@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Animation from '../../Animation'
 import DataArticles from '../DataArticles'
 import ArticlesMoreBox from './ArticlesMoreBox'
 import Navbar from '../../Navbar'

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import Animation from '../../Animation';
+import React, { useState } from 'react';
 import Navbar from '../../Navbar';
 import Data2 from '../LearningData';
 import LearningMoreBox from './LearningMoreBox';

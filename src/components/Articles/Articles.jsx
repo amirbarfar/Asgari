@@ -1,7 +1,6 @@
 import React from 'react'
 import { DataArticles } from './DataArticles'
 import ArticlesBox from './ArticlesBox'
-import Animation from '../Animation'
 import { Link } from 'react-router-dom'
 
 export default function Articles() {

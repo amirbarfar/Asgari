@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import NavbarDashborad from './NavbarDashborad'
-import {fetchData} from "../../lib/fetchData";
 import  { Navigate } from 'react-router-dom'
 
 export default function ArticlesAdd() {
-  const [dateInp, setDateInp] = useState()
   const [name , setName] = useState('')
   const [discription , setDiscription] = useState('')
   const [image , setImage] = useState()

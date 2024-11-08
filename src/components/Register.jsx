@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import { fetchData } from "../lib/fetchData";
-import { redirect, Link } from 'react-router-dom';
-import Alert from '@mui/material/Alert';
-import CheckIcon from '@mui/icons-material/Check';
-
+import { redirect } from 'react-router-dom';
 export default function Regester() {
   const [username, setUsername] = useState('');
   const [phone, setPhone] = useState('');

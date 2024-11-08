@@ -7,10 +7,6 @@ export default function Dashboard() {
   const [posts, setPosts] = useState([]);          // Define posts as state
   const [questions, setQuestions] = useState([]);   // Define questions as state
 
-  useEffect(() => {
-    getData();
-  }, []);
-
   async function getData() {
     try {
       let postsResponse = await fetchData("/posts");
@@ -54,7 +50,7 @@ export default function Dashboard() {
   }
 
   return (
-    
+
     <div className='bg-white min-h-screen'>
       <NavbarDashborad />
       <div className="overflow-x-auto absolute top-[50%] left-[10%] right-[15%] max-sm:left-[5%] max-sm:right-[5%]">

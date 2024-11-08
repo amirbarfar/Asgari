@@ -1,11 +1,8 @@
 import React from 'react'
 import NavbarDashborad from './NavbarDashborad'
 import { useState } from 'react';
-import {fetchData} from "../../lib/fetchData"
-import { redirect , Link } from 'react-router-dom';
 
 export default function LearningAdd() {
-  const [dateInp, setDateInp] = useState()
   const [name , setName] = useState('')
   const [LinkButton , setLinkButton] = useState('')
   const [content , setContent] = useState('')

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { fetchData } from "../lib/fetchData";
-import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
     const [user, setUser] = useState('')

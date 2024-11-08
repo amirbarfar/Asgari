@@ -7,7 +7,7 @@ import Animation from '../Animation'
 
 export default function ArticlesRender() {
 
-    let [data , setData] = useState(DataArticles)
+    let [data] = useState(DataArticles)
 
     let id = useParams()
     console.log(data , id);

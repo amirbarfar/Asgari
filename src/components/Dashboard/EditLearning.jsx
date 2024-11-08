@@ -4,7 +4,6 @@ import { useState , useEffect } from 'react';
 import NavbarDashborad from './NavbarDashborad';
 
 export default function EditLearning() {
-    const [dateInp, setDateInp] = useState()
     const [name , setName] = useState('')
     const [LinkButton , setLinkButton] = useState('')
     const [content , setContent] = useState('')

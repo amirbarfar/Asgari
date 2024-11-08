@@ -1,7 +1,6 @@
 import React from 'react'
 import LearningData from './LearningData'
 import LearningBox from './LearningBox'
-import Animation from '../Animation'
 import { Link } from 'react-router-dom'
 
 export default function Learning() {
