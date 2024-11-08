@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavbarDashborad from './NavbarDashborad';
 import { Link } from 'react-router-dom';
 import { fetchData } from '../../lib/fetchData';
@@ -6,6 +6,10 @@ import { fetchData } from '../../lib/fetchData';
 export default function Dashboard() {
   const [posts, setPosts] = useState([]);          // Define posts as state
   const [questions, setQuestions] = useState([]);   // Define questions as state
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   async function getData() {
     try {
@@ -24,7 +28,7 @@ export default function Dashboard() {
 
   async function deletePost(id)
   {
-    await fetch(`http://localhost:8000/api/posts/delete/${id}`, {
+    const response = await fetch(`http://localhost:8000/api/posts/delete/${id}`, {
       method: 'DELETE',
       credentials: "include",
       headers: {
@@ -37,7 +41,7 @@ export default function Dashboard() {
   }
   
   async function deleteLearning(id){
-    await fetch(`http://localhost:8000/api/questions/delete/${id}`, {
+    const response = await fetch(`http://localhost:8000/api/questions/delete/${id}`, {
       method: 'DELETE',
       credentials: "include",
       headers: {
@@ -50,11 +54,11 @@ export default function Dashboard() {
   }
 
   return (
-
+    
     <div className='bg-white min-h-screen'>
       <NavbarDashborad />
-      <div className="overflow-x-auto absolute top-[50%] left-[10%] right-[15%] max-sm:left-[5%] max-sm:right-[5%]">
-        <h2 className='font-bold my-5 text-xl'>تمام مقالات اضافه شده</h2>
+        <h2 className='font-bold my-5 text-xl absolute top-[60%] right-[15%]'>تمام مقالات اضافه شده</h2>
+      <div className="overflow-x-auto absolute top-[68%] left-[10%] right-[15%] h-80 max-sm:left-[5%] max-sm:right-[5%]">
         <table className="table font-bold ">
           <thead>
             <tr className='text-center'>
@@ -82,8 +86,8 @@ export default function Dashboard() {
         </table>
       </div>
 
-      <div className="overflow-x-auto absolute top-[10%] left-[10%] right-[15%] max-sm:left-[5%] max-sm:right-[5%]">
-        <h2 className='font-bold my-5 text-xl'>تمام آموزش های اضافه شده</h2>
+        <h2 className='font-bold my-5 text-xl absolute top-[10%] left-[10%] right-[15%]'>تمام آموزش های اضافه شده</h2>
+      <div className="overflow-x-auto absolute top-[18%] left-[10%] right-[15%] h-80 max-sm:left-[5%] max-sm:right-[5%]">
         <table className="table font-bold ">
           <thead className='text-center'>
             <tr>
