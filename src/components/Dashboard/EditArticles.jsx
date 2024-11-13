@@ -21,11 +21,10 @@ export default function EditArticles() {
     document.querySelector("#inp").value = dateResult;
   }
   const {id} = useParams();
-  const [imgSrc , setImgSrc] = useState("") 
   
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   async function getData() {
     try {
@@ -67,8 +66,8 @@ export default function EditArticles() {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        return navigate('/dashboard')
+        await response.json();
+        return navigate("/dashboard")
       } else {
         const errorData = await response.json();
         console.error('Error:', errorData);
