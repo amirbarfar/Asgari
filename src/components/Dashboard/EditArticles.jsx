@@ -35,7 +35,7 @@ export default function EditArticles() {
         console.log(postsData.data);
         setName(postsData.data.title);
         setContent(postsData.data.content);
-        setDescription(postsData.data.description);
+        setDiscription(postsData.data.description);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
