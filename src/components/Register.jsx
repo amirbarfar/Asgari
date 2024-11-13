@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { fetchData } from "../lib/fetchData";
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export default function Regester() {
+
   const [username, setUsername] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
+
+  let navigate = useNavigate()
 
   async function registerUser(event) {
     event.preventDefault();
@@ -14,7 +17,7 @@ export default function Regester() {
 
       if (res.ok) {
         console.log("Register successful!");
-        return redirect("/dashboard");
+        return navigate("/dashboard")
       } else {
         const errorData = await res.json();
         alert(errorData.message || "An error occurred during register.");

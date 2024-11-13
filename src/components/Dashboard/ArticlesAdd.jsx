@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import NavbarDashborad from './NavbarDashborad'
-import  { Navigate } from 'react-router-dom'
+import  { useNavigate } from 'react-router-dom'
 
 export default function ArticlesAdd() {
   const [name , setName] = useState('')
@@ -8,6 +8,7 @@ export default function ArticlesAdd() {
   const [image , setImage] = useState()
   const [content , setContent] = useState('')
   
+  const navigate = useNavigate();
 
   function clickHandler() {
     const date = new Date();
@@ -42,7 +43,7 @@ export default function ArticlesAdd() {
       });
 
       if (response.ok) {
-        return (<Navigate to='/dashboard' replace="true"  />)
+        return navigate('/dashboard')
       } else {
         const errorData = await response.json();
         console.error('Error:', errorData);

@@ -7,9 +7,12 @@ export default function Dashboard() {
   const [posts, setPosts] = useState([]);          // Define posts as state
   const [questions, setQuestions] = useState([]);   // Define questions as state
 
+
   useEffect(() => {
     getData();
-  }, [getData]);
+  },[])
+  
+
 
   async function getData() {
     try {

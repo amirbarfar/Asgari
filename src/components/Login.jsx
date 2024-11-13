@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Login() {
   const [name , setName] = useState("");
   const [password , setPassword] = useState("");
+  
   let navigate = useNavigate()
 
   async function loginForm(event) {
@@ -15,7 +16,7 @@ export default function Login() {
   
       if (res.ok) {
         console.log("Login successful!");
-        return navigate("/");
+        return navigate('/dashboard')
       } else {  
         const errorData = await res.json();
         alert(errorData.message || "An error occurred during login.");

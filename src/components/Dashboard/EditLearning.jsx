@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useState , useEffect } from 'react';
 import NavbarDashborad from './NavbarDashborad';
 
@@ -7,6 +7,8 @@ export default function EditLearning() {
     const [name , setName] = useState('')
     const [LinkButton , setLinkButton] = useState('')
     const [content , setContent] = useState('')
+
+    let navigate = useNavigate()
 
     function clickHandler() {
         const date = new Date();
@@ -22,7 +24,7 @@ export default function EditLearning() {
 
     useEffect(() => {
         getData();
-    }, [getData]);
+    }, []);
 
   async function getData() {
     try {
@@ -60,7 +62,7 @@ export default function EditLearning() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Post created successfully:', data.post);
+        return navigate('/dashboard')
       } else {
         const errorData = await response.json();
         console.error('Error:', errorData);

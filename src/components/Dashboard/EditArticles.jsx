@@ -1,13 +1,15 @@
 import React from 'react'
 import { useState , useEffect } from 'react';
 import NavbarDashborad from './NavbarDashborad';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function EditArticles() {
     const [name , setName] = useState('')
     const [discription , setDiscription] = useState('')
     const [image , setImage] = useState('')
     const [content , setContent] = useState('')
+
+    let navigate = useNavigate()
 
   function clickHandler() {
     const date = new Date();
@@ -23,7 +25,7 @@ export default function EditArticles() {
   
   useEffect(() => {
     getData();
-  }, [getData]);
+  }, []);
 
   async function getData() {
     try {
@@ -66,10 +68,8 @@ export default function EditArticles() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Post created successfully:', data.post);
-        // Handle success (e.g., show a success message or navigate to a new page)
+        return navigate('/dashboard')
       } else {
-        // Handle errors (e.g., validation errors)
         const errorData = await response.json();
         console.error('Error:', errorData);
       }

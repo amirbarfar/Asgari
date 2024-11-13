@@ -1,11 +1,14 @@
 import React from 'react'
 import NavbarDashborad from './NavbarDashborad'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LearningAdd() {
   const [name , setName] = useState('')
   const [LinkButton , setLinkButton] = useState('')
   const [content , setContent] = useState('')
+
+  let navigate = useNavigate()
 
   function clickHandler() {
     const date = new Date();
@@ -41,7 +44,7 @@ export default function LearningAdd() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Post created successfully:', data.post);
+        return navigate('/dashboard')
       } else {
         const errorData = await response.json();
         console.error('Error:', errorData);
