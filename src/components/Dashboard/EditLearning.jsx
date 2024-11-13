@@ -60,7 +60,7 @@ export default function EditLearning() {
       });
 
       if (response.ok) {
-        const data = await response.json();
+        await response.json();
         return navigate('/dashboard')
       } else {
         const errorData = await response.json();
