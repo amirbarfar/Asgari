@@ -23,26 +23,26 @@ export default function EditArticles() {
   const {id} = useParams();
   
   useEffect(() => {
-    getData();
-  }, [getData]);
+    const getData = async () => {
+      try {
+        let postsResponse = await fetch(`http://127.0.0.1:8000/api/posts/${id}`, {
+          credentials: "include",
+          headers: { // باید header به headers تغییر کند
+            Accept: "application/json"
+          }
+        });
+        const postsData = await postsResponse.json();
+        console.log(postsData.data);
+        setName(postsData.data.title);
+        setContent(postsData.data.content);
+        setDescription(postsData.data.description);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-  async function getData() {
-    try {
-      let postsResponse = await fetch(`http://127.0.0.1:8000/api/posts/${id}` , {
-        credentials: "include",
-        header: {
-          Accept: "application/json"
-        }
-      });
-      const postsData = await postsResponse.json();
-      console.log(postsData.data)
-      setName(postsData.data.title)
-      setContent(postsData.data.content)
-      setDiscription(postsData.data.description)
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
+    getData();
+  }, [id]);
 
   async function addPost(event)
   {

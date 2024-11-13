@@ -23,27 +23,26 @@ export default function EditLearning() {
     const {id} = useParams();
 
     useEffect(() => {
-        getData();
-    }, [getData]);
-
-  async function getData() {
-    try {
-      let postsResponse = await fetch(`http://127.0.0.1:8000/api/questions/${id}` , {
-        credentials: "include",
-        header: {
-          Accept: "application/json"
+      const getData = async () => {
+        try {
+          let postsResponse = await fetch(`http://127.0.0.1:8000/api/questions/${id}`, {
+            credentials: "include",
+            headers: {
+              Accept: "application/json"
+            }
+          });
+          const postsData = await postsResponse.json();
+          console.log(postsData.data);
+          setName(postsData.data.question);
+          setContent(postsData.data.answer);
+          setLinkButton(postsData.data.link);
+        } catch (error) {
+          console.error("Error fetching data:", error);
         }
-      });
-      const postsData = await postsResponse.json();
-      console.log(postsData.data)
-      setName(postsData.data.question)
-      setContent(postsData.data.answer)
-      setLinkButton(postsData.data.link)
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
-
+      };
+  
+      getData();
+    }, [id]); 
   async function addQuestion(event)
   {
 

@@ -16,6 +16,8 @@ export default function NavbarDashborad() {
             nameD = await nameD.json();
 
             setUser(nameD);
+            console.log(user);
+            
         }
 
     useEffect(()=> {
