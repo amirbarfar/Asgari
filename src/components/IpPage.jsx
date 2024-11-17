@@ -78,7 +78,7 @@ export default function IpPage() {
   };
 
   return (
-    <div className='flex justify-center items-center gap-10 flex-col w-96 h-96 shadow-lg p-5 mx-auto translate-y-[50%]'>
+    <div className='flex justify-center items-center gap-10 flex-col w-96 h-96 shadow-lg p-5 mx-auto translate-y-[50%] max-sm:w-80'>
       <h1 className='font-bold text-xl'>محاسبه‌کننده شبکه</h1>
       <div className='flex flex-col gap-10 w-full'>
         <TextField className='w-full' onChange={(event) => setIpAddress(event.target.value)} value={ipAddress} id="outlined-basic" variant="outlined" />
@@ -95,7 +95,7 @@ export default function IpPage() {
         <Box>
           {result && (
             <div>
-              <ul className='font-bold mx-auto w-96 h-96 bg-white p-10 flex justify-center items-center flex-col gap-y-5 text-xl my-36 rounded-lg shadow-2xl'>
+              <ul className='font-bold mx-auto w-96 h-96 bg-white p-10 flex justify-center items-center flex-col gap-y-5 text-xl max-sm:text-sm my-36 rounded-lg shadow-2xl max-sm:w-80'>
                 <li>Net ID: {result.netId}</li>
                 <li>Subnet Mask: {result.subnetMask}</li>
                 <li>Wildcard Mask: {result.wildcardMask}</li>
