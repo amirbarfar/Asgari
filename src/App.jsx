@@ -12,8 +12,10 @@ import ArticlesAdd from './components/Dashboard/ArticlesAdd'
 import LearningAdd from './components/Dashboard/LearningAdd'
 import EditArticles from './components/Dashboard/EditArticles'
 import EditLearning from './components/Dashboard/EditLearning'
+import IpPage from './pages/ipPage'
 
 export default function App() {
+
   return (
     <div className='min-h-screen mx-5'>
       <Routes>
@@ -28,6 +30,7 @@ export default function App() {
         <Route path='/dashboard/learninges/:id' element={<EditLearning/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
+        <Route path='/ip' element={<IpPage/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>
