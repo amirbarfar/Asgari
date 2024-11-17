@@ -12,7 +12,7 @@ import ArticlesAdd from './components/Dashboard/ArticlesAdd'
 import LearningAdd from './components/Dashboard/LearningAdd'
 import EditArticles from './components/Dashboard/EditArticles'
 import EditLearning from './components/Dashboard/EditLearning'
-import IpPage from './pages/ipPage'
+import IpPage from './components/IpPage'
 
 export default function App() {
 
